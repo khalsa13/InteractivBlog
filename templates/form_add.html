@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<style type="text/css">
+    a{
+        color: #cc1111;
+    }
+    body{
+
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+</style>
+</head>
+<body background="http://stancebranding.com/wp-content/uploads/2014/08/Blur-4-1024x667.png" style="background-size: cover">
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<form method="post" action="" enctype="multipart/form-data">
+
+    {% csrf_token %}
+     <div class="container-fluid " style="padding-left: 40%;padding-top: 5%">
+            <h5 >Title :</h5>
+              <div class="form-group">
+              {{ form.title }}
+              </div>
+            <h5 >Content :</h5>
+
+               <div class="form-group">
+              {{ form.content }}
+              </div>
+              <div class="form-group">
+                {{ form.image }}
+              </div>
+              <div class="form-check">
+                <input type="submit" value="Create Post" class="btn btn-sm btn-danger">
+               </div>
+    </div>
+
+
+
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</body>
+</html>

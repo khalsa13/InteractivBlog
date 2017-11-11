@@ -1,0 +1,42 @@
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    a{
+        color: #cc1111;
+    }
+    body{
+
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+</style>
+</head>
+<body background="http://stancebranding.com/wp-content/uploads/2014/08/Blur-4-1024x667.png" style="background-size: cover">
+
+
+       <a style="margin-left: 87%;margin-top: 7px" class="btn btn-warning" href="{% url 'create' %}"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add New Post </a>
+
+
+
+
+<div class="card" style="width: 35rem;margin-left: 33%;margin-top: 2%">
+  <img class="card-img-top" src="https://image.freepik.com/free-vector/retro-books-background_1009-213.jpg" alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title " style="text-align: center">Posts</h4>
+    <p class="card-text p-2 mb-2 bg-info text-white" style="text-align: center;">Next Screen Will Lead You to All The Posts That Are Present On Our Timeline</p>
+    <a href="{% url 'home' %}"  class="container-fluid btn btn-warning">Go</a>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>

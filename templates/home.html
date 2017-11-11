@@ -1,0 +1,119 @@
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <link rel="stylesheet" href='{% static "/css/Base.css" %}'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<style type="text/css">
+    a{
+        color: #cc1111;
+    }
+    body{
+
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+</style>
+</head>
+<body background="http://stancebranding.com/wp-content/uploads/2014/08/Blur-4-1024x667.png" style="background-size: cover">
+
+
+    {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.11';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<form method="get" action="" style="margin-left: 40%;margin-top: 1%">
+           <input type="text" class="btn btn-sm" name="q" placeholder="Enter Query" >
+           <input type="submit" class="btn btn-sm btn-info" value="Search">
+       </form>
+
+
+
+<div class="row" style="margin-top: 1%;padding-left: 5%">
+{% for i in query_set %}
+
+  <div class="col-sm-3">
+<div class="card" style="width:90%;height: 50% ">
+  <div class="card-body">
+    <h4 class="card-title" style="text-align: center">{{ i.title }}</h4>
+       <small style="margin-left: 22%">
+        {{ i.timestamp }}
+       </small>
+      {% if i.image %}
+      <img src="{{ i.image.url }}" class="img-responsive" style="width: 80%;height: 30%;margin: 5% 5% 5% 9%">
+
+      {% endif %}
+
+
+     <a href="{% url 'post_details' slug=i.slug %}" class="btn btn-primary btn-block  btn-sm">View Post</a>
+
+  <div style="padding-top: 8%">
+    <div class="fb-share-button" style="padding-left: 7%" data-href="{{ get_absolute_uri }}" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>&nbsp;
+    <div class="fb-like" style="padding-left: 10%" data-href="{{ get_absolute_uri }}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="false"></div>
+
+  </div>
+
+  </div>
+  </div>
+
+</div>
+
+  <hr>
+
+
+    {% endfor %}
+
+
+</div>
+
+
+
+
+<div class="pagination" style="margin-top: 12%;margin-left: 45%">
+    <span class="step-links" >
+        {% if query_set.has_previous %}
+            <a href="?page={{ query_set.previous_page_number }}" style="color:maroon">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ query_set.number }} of {{ query_set.paginator.num_pages }}.
+        </span>
+
+        {% if query_set.has_next %}
+            <a href="?page={{ query_set.next_page_number }}" style="color:maroon">Next</a>
+        {% endif %}
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>
